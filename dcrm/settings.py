@@ -1,3 +1,9 @@
+import environ
+
+# Init environ variables
+env = environ.Env()
+environ.Env.read_env()
+
 """
 Django settings for dcrm project.
 
@@ -77,11 +83,11 @@ WSGI_APPLICATION = 'dcrm.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'luowtkop',
-        'USER': 'luowtkop',
-        'PASSWORD': 'l5F9rfMKWqsW2HWcMuCaZNvXZN-c7xU3',
-        'HOST': 'trumpet.db.elephantsql.com',
-        'PORT': 5432
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASS'),
+        'HOST': env('DATABASE_HOST'),
+        'PORT': env('DATABASE_PORT')
     }
 }
 
